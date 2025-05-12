@@ -19,6 +19,16 @@ CREATE TABLE user_role(
     PRIMARY KEY (id_role_id, id_user_id)
 );
 
+
+CREATE TABLE  refresh_token(
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    username varchar(255) NOT NULL,
+    refresh_token varchar(255) NOT NULL,
+    revoked BOOLEAN NOT NULL,
+    date_created TIMESTAMP NOT NULL
+);
+
+
 -- criar usuario admin
 
 INSERT INTO role (authority) VALUES ('ROLE_ADMIN');

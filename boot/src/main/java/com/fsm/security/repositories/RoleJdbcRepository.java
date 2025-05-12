@@ -7,8 +7,8 @@ import io.micronaut.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-@JdbcRepository(dialect = Dialect.POSTGRES) // <1>
-public interface RoleJdbcRepository extends CrudRepository<Role, Long> { // <2>
+@JdbcRepository(dialect = Dialect.POSTGRES)
+public interface RoleJdbcRepository extends CrudRepository<Role, Long> {
 
     Role save(String authority);
 
