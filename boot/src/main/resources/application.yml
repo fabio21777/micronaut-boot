@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: boot
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+flyway:
+  datasources:
+    default:
+      enabled: true
