@@ -18,3 +18,20 @@ CREATE TABLE user_role(
     FOREIGN KEY (id_user_id) REFERENCES "user"(id),
     PRIMARY KEY (id_role_id, id_user_id)
 );
+
+-- criar usuario admin
+
+INSERT INTO role (authority) VALUES ('ROLE_ADMIN');
+INSERT INTO role (authority) VALUES ('ROLE_USER');
+
+-- usuario admin
+INSERT INTO "user" (username, password, enabled, account_expired, account_locked, password_expired)
+VALUES ('admin', '$2a$12$rvawqe7dKFe3g.gW.E6rmerryIaJSM45h6/g4yKqLxWdB6nXiJUlC', true, false, false, false);
+INSERT INTO user_role (id_role_id, id_user_id)
+VALUES (1, 1);
+
+-- usuario padrao
+INSERT INTO "user" (username, password, enabled, account_expired, account_locked, password_expired)
+VALUES ('user', '$2a$12$7EynTDvqS3kPXbjhzpmIEOgde/cCcIbVsUz0zG/eOHwo/UAnd5Fre', true, false, false, false);
+INSERT INTO user_role (id_role_id, id_user_id)
+VALUES (2, 2);
