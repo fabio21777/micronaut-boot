@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Singleton
-class PasswordEncoder{
+public class PasswordEncoder {
 
     org.springframework.security.crypto.password.PasswordEncoder delegate = new BCryptPasswordEncoder();
 
