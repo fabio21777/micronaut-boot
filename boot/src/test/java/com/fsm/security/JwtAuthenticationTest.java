@@ -47,6 +47,10 @@ class RequestSpecificationJwtTest {
         // Verify token
         assertNotNull(accessToken);
         assertInstanceOf(SignedJWT.class, JWTParser.parse(accessToken));
+
+        // Verify refresh token
+        assertNotNull(refreshToken);
+        assertInstanceOf(SignedJWT.class, JWTParser.parse(refreshToken));
     }
 
 }
