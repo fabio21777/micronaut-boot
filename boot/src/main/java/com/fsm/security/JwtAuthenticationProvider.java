@@ -17,7 +17,9 @@ import reactor.core.publisher.FluxSink;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
 import static io.micronaut.security.authentication.AuthenticationFailureReason.*;
@@ -88,6 +90,11 @@ class JwtAuthenticationProvider<B> implements HttpRequestReactiveAuthenticationP
 
     private AuthenticationResponse createSuccessfulAuthenticationResponse(UserState user) {
         List<String> authorities = authoritiesFetcher.findAuthoritiesByUsername(user.getUsername());
-        return AuthenticationResponse.success(user.getUsername(), authorities);
+
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("sub", user.getUsername()); // ou outro dado relevante
+
+        return AuthenticationResponse.success(user.getUsername(), authorities, attributes);
     }
+
 }
