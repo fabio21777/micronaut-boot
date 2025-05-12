@@ -1,4 +1,4 @@
-package com.fsm.security.services;
+package com.fsm.security;
 
 import io.micronaut.core.annotation.NonNull;
 import jakarta.inject.Singleton;

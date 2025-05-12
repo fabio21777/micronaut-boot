@@ -1,4 +1,4 @@
-package com.fsm.security.services;
+package com.fsm.security;
 
 import com.fsm.security.repositories.UserRoleJdbcRepository;
 import jakarta.inject.Singleton;

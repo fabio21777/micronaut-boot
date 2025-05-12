@@ -1,4 +1,4 @@
-package com.fsm.security.services;
+package com.fsm.security;
 
 import com.fsm.security.entities.RefreshToken;
 import com.fsm.security.repositories.RefreshTokenRepository;
