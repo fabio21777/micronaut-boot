@@ -22,7 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
-import static io.micronaut.security.authentication.AuthenticationFailureReason.*;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.ACCOUNT_EXPIRED;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.ACCOUNT_LOCKED;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.CREDENTIALS_DO_NOT_MATCH;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.PASSWORD_EXPIRED;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.USER_DISABLED;
+import static io.micronaut.security.authentication.AuthenticationFailureReason.USER_NOT_FOUND;
 
 @Singleton // <1>
 class JwtAuthenticationProvider<B> implements HttpRequestReactiveAuthenticationProvider<B> {

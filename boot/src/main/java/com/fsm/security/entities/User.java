@@ -5,8 +5,11 @@ import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.Relation;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.List;
 
 @MappedEntity
 public record User(@Nullable
@@ -20,7 +23,8 @@ public record User(@Nullable
                    boolean enabled,
                    boolean accountExpired,
                    boolean accountLocked,
-                   boolean passwordExpired) implements UserState {
+                   boolean passwordExpired,
+                   @Relation(value = Relation.Kind.ONE_TO_MANY) List<UserRole> roles) implements UserState {
 
     @Override
     public String getUsername() {
@@ -50,5 +54,10 @@ public record User(@Nullable
     @Override
     public boolean isPasswordExpired() {
         return false;
+    }
+
+    @Override
+    public Long id() {
+        return id;
     }
 }
