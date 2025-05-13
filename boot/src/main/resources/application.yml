@@ -12,7 +12,9 @@ micronaut:
         generator:
           refresh-token:
             enabled: true
-            secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}diz se
+            secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}
+          access-token:
+            expiration:  ${JWT_GENERATOR_ACCESS_TOKEN_EXPIRATION:PT24H}
 datasources:
   default:
     driver-class-name: org.postgresql.Driver
