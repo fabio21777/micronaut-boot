@@ -13,7 +13,7 @@ public abstract class BaseDomain {
 
     @Id
     @GeneratedValue(GeneratedValue.Type.AUTO)
-    private long id;
+    private Long id;
 
     // @AutoPopulated gerará automaticamente um UUID ao persistir
     @AutoPopulated(updatable = false)
@@ -47,14 +47,14 @@ public abstract class BaseDomain {
         return toString().hashCode();
     }
 
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
